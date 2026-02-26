@@ -123,3 +123,21 @@ textarea {
     background: linear-gradient(90deg, #00c6ff, #0072ff);
     transition: width 0.5s ease;
 }
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active-tab {
+    display: block;
+}
+
+#logBox {
+    background: rgba(0,0,0,0.4);
+    padding: 15px;
+    border-radius: 10px;
+    height: 150px;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 14px;
+}
