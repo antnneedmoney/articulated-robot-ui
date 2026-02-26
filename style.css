@@ -141,3 +141,75 @@ textarea {
     font-family: monospace;
     font-size: 14px;
 }
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#clock {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.status-badge {
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.status-badge.ready {
+    background: #00c853;
+    box-shadow: 0 0 15px rgba(0,255,0,0.6);
+}
+
+.status-badge.running {
+    background: #ff9800;
+    box-shadow: 0 0 15px rgba(255,165,0,0.7);
+}
+
+.status-badge.complete {
+    background: #2196f3;
+    box-shadow: 0 0 15px rgba(0,150,255,0.7);
+}
+
+#logBox {
+    background: rgba(0,0,0,0.4);
+    padding: 15px;
+    border-radius: 10px;
+    height: 200px;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 13px;
+}
+
+.log-entry {
+    margin-bottom: 5px;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.tab-content {
+    display: none;
+    animation: fadeSlide 0.3s ease;
+}
+
+.tab-content.active-tab {
+    display: block;
+}
+
+@keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.execute-btn.loading {
+    background: gray;
+    cursor: not-allowed;
+}
