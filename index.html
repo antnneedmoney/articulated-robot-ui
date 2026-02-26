@@ -10,9 +10,12 @@
 <div class="container">
 
     <header>
-        <h1>🤖 Articulated Robot Control</h1>
-        <div class="status-badge">READY</div>
-    </header>
+    <h1>🤖 Articulated Robot Control</h1>
+    <div class="header-right">
+        <div id="clock"></div>
+        <div id="statusBadge" class="status-badge ready">READY</div>
+    </div>
+</header>
 
     <nav>
         <button class="nav-btn active">Dashboard</button>
@@ -22,6 +25,11 @@
     </nav>
 
     <!-- ROBOT OVERVIEW -->
+<section id="log" class="card tab-content">
+    <h2>System Log</h2>
+    <div id="logBox"></div>
+</section>
+    
     <section class="card overview">
         <h2>Robot Overview</h2>
 
@@ -104,3 +112,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+
