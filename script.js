@@ -1,3 +1,21 @@
+function showTab(tabId, button) {
+    // hide all tabs
+    document.querySelectorAll(".tab-content").forEach(tab => {
+        tab.classList.remove("active-tab");
+    });
+
+    // remove active button style
+    document.querySelectorAll(".nav-btn").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    // show selected tab
+    document.getElementById(tabId).classList.add("active-tab");
+
+    // activate button
+    button.classList.add("active");
+}
+
 function setJoint(id, value) {
     let percentage = (value + 180) / 360 * 100;
     document.getElementById(id).style.width = percentage + "%";
@@ -26,3 +44,6 @@ function executeCommand() {
     setJoint("j2", Math.floor(Math.random()*180 - 90));
     setJoint("j3", Math.floor(Math.random()*180 - 90));
 }
+
+// Default tab
+document.getElementById("dashboard").classList.add("active-tab");
