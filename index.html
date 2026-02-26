@@ -18,14 +18,14 @@
 </header>
 
     <nav>
-        <button class="nav-btn active">Dashboard</button>
-        <button class="nav-btn">Command</button>
-        <button class="nav-btn">Monitoring</button>
-        <button class="nav-btn">System Log</button>
+        <button class="nav-btn active" onclick="showTab('dashboard', this)">Dashboard</button>
+        <button class="nav-btn" onclick="showTab('command', this)">Command</button>
+        <button class="nav-btn" onclick="showTab('monitoring', this)">Monitoring</button>
+        <button class="nav-btn" onclick="showTab('log', this)">System Log</button>
     </nav>
 
     <!-- ROBOT OVERVIEW -->
-<section id="log" class="card tab-content">
+<section id="dashboard" class="card overview tab-content">
     <h2>System Log</h2>
     <div id="logBox"></div>
 </section>
@@ -57,7 +57,7 @@
     </section>
 
     <!-- NATURAL LANGUAGE COMMAND -->
-    <section class="card command">
+    <section id="command" class="card command tab-content">
         <h2>Natural Language Command</h2>
 
         <textarea id="commandInput" placeholder="Example: Pick the red object and place it on conveyor B"></textarea>
@@ -66,7 +66,7 @@
     </section>
 
     <!-- JOINT MONITORING -->
-    <section class="card monitoring">
+    <section id="monitoring" class="card monitoring tab-content">
         <h2>Joint Monitoring</h2>
 
         <div class="joint">
@@ -107,9 +107,18 @@
 
     </section>
 
+    <section id="log" class="card tab-content">
+        <h2>System Log</h2>
+        <div id="logBox">
+            <p>[INFO] Robot initialized.</p>
+            <p>[STATUS] System ready.</p>
+        </div>
+    </section>
+
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
+
 
