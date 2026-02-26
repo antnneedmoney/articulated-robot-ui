@@ -2,62 +2,69 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Industrial Articulated Robot Control</title>
+<title>Articulated Robot Control</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-🤖 Industrial Articulated Robot Control Panel
-<div class="status">
+<div class="logo">🤖 Articulated Robot Control</div>
+<div class="status-card">
 <div class="led" id="led"></div>
 <span id="statusText">READY</span>
 </div>
 </header>
 
-<nav>
-<button onclick="showSection('dashboard')">Dashboard</button>
-<button onclick="showSection('command')">Command</button>
-<button onclick="showSection('monitoring')">Monitoring</button>
-<button onclick="showSection('log')">System Log</button>
-</nav>
+<div class="container">
 
-<section id="dashboard" class="content active">
+<aside class="sidebar">
+<button onclick="showSection('dashboard')">🏠 Dashboard</button>
+<button onclick="showSection('command')">🧠 Command</button>
+<button onclick="showSection('monitoring')">📊 Monitoring</button>
+<button onclick="showSection('log')">📝 System Log</button>
+</aside>
+
+<main>
+
+<section id="dashboard" class="card active">
 <h2>Robot Overview</h2>
-<p>Robot Type: 6-Axis Articulated Robot</p>
-<p>Operation Mode: Automatic</p>
-<p>Controller: Industrial Grade</p>
+<div class="info-grid">
+<div class="info-box">Robot Type<br><b>6-Axis Articulated</b></div>
+<div class="info-box">Mode<br><b>Automatic</b></div>
+<div class="info-box">Controller<br><b>Industrial</b></div>
+<div class="info-box">Status<br><b id="statusMirror">READY</b></div>
+</div>
 </section>
 
-<section id="command" class="content">
-<h2>Human Language Command</h2>
-
-<textarea id="commandInput" placeholder="Example: Pick object at position A and place at position B"></textarea>
-
-<button class="execute" onclick="executeCommand()">Execute Command</button>
-
-<div id="commandResponse"></div>
+<section id="command" class="card">
+<h2>Natural Language Command</h2>
+<textarea id="commandInput" placeholder="Example: Pick the red object and place it on conveyor B"></textarea>
+<button class="primary" onclick="executeCommand()">Execute</button>
+<div id="response"></div>
 </section>
 
-<section id="monitoring" class="content">
-<h2>System Monitoring</h2>
-<ul>
-<li>Joint 1: <span id="j1">0°</span></li>
-<li>Joint 2: <span id="j2">45°</span></li>
-<li>Joint 3: <span id="j3">-30°</span></li>
-<li>Joint 4: <span id="j4">0°</span></li>
-<li>Joint 5: <span id="j5">0°</span></li>
-<li>Joint 6: <span id="j6">0°</span></li>
-</ul>
+<section id="monitoring" class="card">
+<h2>Joint Monitoring</h2>
+<div class="joint-grid">
+<div>Joint 1 <span>0°</span></div>
+<div>Joint 2 <span>45°</span></div>
+<div>Joint 3 <span>-30°</span></div>
+<div>Joint 4 <span>0°</span></div>
+<div>Joint 5 <span>0°</span></div>
+<div>Joint 6 <span>0°</span></div>
+</div>
 </section>
 
-<section id="log" class="content">
+<section id="log" class="card">
 <h2>System Log</h2>
 <div class="logbox" id="logbox"></div>
 </section>
 
-<script src="script.js"></script>
+</main>
 
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
