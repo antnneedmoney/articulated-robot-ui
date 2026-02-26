@@ -1,29 +1,28 @@
-function showSection(id){
-document.querySelectorAll('.card').forEach(c=>c.classList.remove('active'));
-document.getElementById(id).classList.add('active');
+function setJoint(id, value) {
+    let percentage = (value + 180) / 360 * 100;
+    document.getElementById(id).style.width = percentage + "%";
+    document.getElementById(id + "val").innerText = value + "°";
 }
 
-function executeCommand(){
-let cmd=document.getElementById("commandInput").value;
-let logbox=document.getElementById("logbox");
+setJoint("j1", 0);
+setJoint("j2", 45);
+setJoint("j3", -30);
+setJoint("j4", 0);
+setJoint("j5", 0);
+setJoint("j6", 0);
 
-if(cmd.trim()===""){
-alert("Please enter a command.");
-return;
-}
+function executeCommand() {
+    let command = document.getElementById("commandInput").value;
 
-document.getElementById("statusText").innerText="RUNNING";
-document.getElementById("statusMirror").innerText="RUNNING";
-document.getElementById("led").style.background="orange";
+    if (command.trim() === "") {
+        alert("Please enter a command.");
+        return;
+    }
 
-logbox.innerHTML += "[COMMAND] "+cmd+"<br>";
-logbox.scrollTop=logbox.scrollHeight;
+    alert("Command sent to articulated robot:\n\n" + command);
 
-setTimeout(()=>{
-document.getElementById("statusText").innerText="READY";
-document.getElementById("statusMirror").innerText="READY";
-document.getElementById("led").style.background="limegreen";
-
-logbox.innerHTML += "[SYSTEM] Command executed successfully.<br>";
-},2000);
+    // Simulasi perubahan joint
+    setJoint("j1", Math.floor(Math.random()*180 - 90));
+    setJoint("j2", Math.floor(Math.random()*180 - 90));
+    setJoint("j3", Math.floor(Math.random()*180 - 90));
 }
