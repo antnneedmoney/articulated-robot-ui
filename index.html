@@ -1,67 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Articulated Robot Control</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Articulated Robot Control</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<header>
-<div class="logo">🤖 Articulated Robot Control</div>
-<div class="status-card">
-<div class="led" id="led"></div>
-<span id="statusText">READY</span>
-</div>
-</header>
 
 <div class="container">
 
-<aside class="sidebar">
-<button onclick="showSection('dashboard')">🏠 Dashboard</button>
-<button onclick="showSection('command')">🧠 Command</button>
-<button onclick="showSection('monitoring')">📊 Monitoring</button>
-<button onclick="showSection('log')">📝 System Log</button>
-</aside>
+    <header>
+        <h1>🤖 Articulated Robot Control</h1>
+        <div class="status-badge">READY</div>
+    </header>
 
-<main>
+    <nav>
+        <button class="nav-btn active">Dashboard</button>
+        <button class="nav-btn">Command</button>
+        <button class="nav-btn">Monitoring</button>
+        <button class="nav-btn">System Log</button>
+    </nav>
 
-<section id="dashboard" class="card active">
-<h2>Robot Overview</h2>
-<div class="info-grid">
-<div class="info-box">Robot Type<br><b>6-Axis Articulated</b></div>
-<div class="info-box">Mode<br><b>Automatic</b></div>
-<div class="info-box">Controller<br><b>Industrial</b></div>
-<div class="info-box">Status<br><b id="statusMirror">READY</b></div>
-</div>
-</section>
+    <!-- ROBOT OVERVIEW -->
+    <section class="card overview">
+        <h2>Robot Overview</h2>
 
-<section id="command" class="card">
-<h2>Natural Language Command</h2>
-<textarea id="commandInput" placeholder="Example: Pick the red object and place it on conveyor B"></textarea>
-<button class="primary" onclick="executeCommand()">Execute</button>
-<div id="response"></div>
-</section>
+        <div class="overview-grid">
+            <div class="info-box">
+                <span>Robot Type</span>
+                <strong>6-Axis Articulated</strong>
+            </div>
 
-<section id="monitoring" class="card">
-<h2>Joint Monitoring</h2>
-<div class="joint-grid">
-<div>Joint 1 <span>0°</span></div>
-<div>Joint 2 <span>45°</span></div>
-<div>Joint 3 <span>-30°</span></div>
-<div>Joint 4 <span>0°</span></div>
-<div>Joint 5 <span>0°</span></div>
-<div>Joint 6 <span>0°</span></div>
-</div>
-</section>
+            <div class="info-box">
+                <span>Mode</span>
+                <strong>Automatic</strong>
+            </div>
 
-<section id="log" class="card">
-<h2>System Log</h2>
-<div class="logbox" id="logbox"></div>
-</section>
+            <div class="info-box">
+                <span>Controller</span>
+                <strong>Industrial</strong>
+            </div>
 
-</main>
+            <div class="info-box">
+                <span>Status</span>
+                <strong class="ready-text">READY</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- NATURAL LANGUAGE COMMAND -->
+    <section class="card command">
+        <h2>Natural Language Command</h2>
+
+        <textarea id="commandInput" placeholder="Example: Pick the red object and place it on conveyor B"></textarea>
+
+        <button class="execute-btn" onclick="executeCommand()">Execute Command</button>
+    </section>
+
+    <!-- JOINT MONITORING -->
+    <section class="card monitoring">
+        <h2>Joint Monitoring</h2>
+
+        <div class="joint">
+            <label>Joint 1</label>
+            <div class="progress"><div id="j1"></div></div>
+            <span id="j1val">0°</span>
+        </div>
+
+        <div class="joint">
+            <label>Joint 2</label>
+            <div class="progress"><div id="j2"></div></div>
+            <span id="j2val">45°</span>
+        </div>
+
+        <div class="joint">
+            <label>Joint 3</label>
+            <div class="progress"><div id="j3"></div></div>
+            <span id="j3val">-30°</span>
+        </div>
+
+        <div class="joint">
+            <label>Joint 4</label>
+            <div class="progress"><div id="j4"></div></div>
+            <span id="j4val">0°</span>
+        </div>
+
+        <div class="joint">
+            <label>Joint 5</label>
+            <div class="progress"><div id="j5"></div></div>
+            <span id="j5val">0°</span>
+        </div>
+
+        <div class="joint">
+            <label>Joint 6</label>
+            <div class="progress"><div id="j6"></div></div>
+            <span id="j6val">0°</span>
+        </div>
+
+    </section>
 
 </div>
 
